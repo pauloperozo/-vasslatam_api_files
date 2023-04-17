@@ -25,16 +25,18 @@ const app = express()
       app.use( express.json({limit: '50mb'}) )
       app.use( express.urlencoded( { limit: '50mb', extended: true } ) ) /* Tamaño De 50MB  */
 
+      /*Archivos Estaticos */
+      app.use(express.static('public'))
+      
       app.use( Handle503 ) /*Http Verifica El Timeout errores*/
       
       /*Routes */
-
-      HandleRoute().forEach( async route => {
+      for(let route of HandleRoute() ) {
 
         const module = await import( route.path )
         app.use(route.name,module.default)
-        
-      })
+
+      }
 
       app.use( Handle404 ) /*Error 404*/
 

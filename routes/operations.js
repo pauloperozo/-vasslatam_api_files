@@ -4,11 +4,11 @@ import { ContarLineasControllers,ContarPalabrasControllers,BuscarPalabrasControl
 //////////////////////////////////////////////////////////////////////////////////////////
 const router = Router()
 //////////////////////////////////////////////////////////////////////////////////////////
-router.get('/',ContarLineasControllers )
-router.get('/',ContarPalabrasControllers )
-router.get('/',BuscarPalabrasControllers )
-router.get('/',IrLineaControllers )
-router.get('/',BuscarPalindromesControllers )
+router.get('/constarlineas/:name',ContarLineasControllers )
+router.get('/contarpalabras/:name',ContarPalabrasControllers )
+router.get('/archivo/:name/linea/:value',IrLineaControllers )
+router.get('/archivo/:name/palabra/:value',BuscarPalabrasControllers )
+router.get('/palindrome/:name/',BuscarPalindromesControllers )
 //////////////////////////////////////////////////////////////////////////////////////////
 export default router
 //////////////////////////////////////////////////////////////////////////////////////////
